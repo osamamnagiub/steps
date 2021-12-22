@@ -1,0 +1,22 @@
+<div class="row">
+  <div class="col col-lg-12">
+
+    <div id="flowBoxes">
+      <div *ngFor="let step of stepsService.steps | async; let i = index" class="left right" routerLinkActive="active">
+        <a [routerLink]="['/steps', step.id]" routerLinkActive="active">Step {{i + 1}}</a>
+        <span>
+           <a (click)="removeStep(step.id)" style="cursor: pointer; padding: 0px 11px 0px 40px">-</a>
+        </span>
+      </div>
+
+      <div (click)="addStep()" class="left right" style="cursor: pointer">
+          <span>
+           <a style="padding: 0px 11px 0px 40px">+</a>
+        </span>
+      </div>
+
+    </div>
+
+  </div>
+</div>
+<router-outlet></router-outlet>

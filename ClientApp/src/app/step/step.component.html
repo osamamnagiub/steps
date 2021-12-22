@@ -1,0 +1,35 @@
+<div class="row justify-content-end">
+  <div class="col col-4">
+    <button (click)="addNewItem()" class="btn btn-light">Add new item</button>
+  </div>
+
+</div>
+<div class="row">
+  <div class="col col-4">
+    <div *ngFor="let item of stepItems | async; let i = index" class="accordion" id="accordionExample"
+         style="margin-bottom: 20px">
+      <div class="card">
+        <div class="card-header" id="headingOne">
+          <h2 class="mb-0">
+            <a (click)="selectedItem = item">Item {{i + 1}}</a>
+          </h2>
+          <span class="ml-auto">
+             <button (click)="deleteItem(item.id)">Delete</button>
+          </span>
+
+        </div>
+
+        <div aria-labelledby="headingOne" class="collapse show" data-parent="#accordionExample" id="collapseOne">
+          <div class="card-body">
+            <h5 class="card-title">{{item.title}}</h5>
+            <p class="card-text">{{item.description}}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+</div>
+
+<app-add-edit (onSave)="saveNewItem($event)" *ngIf="selectedItem" [selectedItem]="selectedItem"></app-add-edit>

@@ -1,0 +1,64 @@
+#flowBoxes {
+  margin: auto;
+  padding: 20px;
+  min-width: 700px;
+
+}
+
+#flowBoxes div {
+  display: inline-block;
+  position: relative;
+  height: 25px;
+  line-height: 25px;
+  padding: 0 0 0 40px;
+  border: 1px solid #ccc;
+  margin-right: 2px;
+  background-color: white;
+}
+
+#flowBoxes div.right:after {
+  content: '';
+  border-top: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  width: 18px;
+  height: 18px;
+  position: absolute;
+  right: 0;
+  top: -1px;
+  background-color: white;
+  z-index: 150;
+
+  -webkit-transform: translate(10px, 4px) rotate(45deg);
+  -moz-transform: translate(10px, 4px) rotate(45deg);
+  -ms-transform: translate(10px, 4px) rotate(45deg);
+  -o-transform: translate(10px, 4px) rotate(20deg);
+  transform: translate(10px, 4px) rotate(45deg);
+}
+
+#flowBoxes div.left:before {
+  content: '';
+  border-top: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  width: 18px;
+  height: 18px;
+  position: absolute;
+  left: 0;
+  top: -1px;
+  background-color: white;
+  z-index: 50;
+
+  -webkit-transform: translate(-10px, 4px) rotate(45deg);
+  -moz-transform: translate(-10px, 4px) rotate(45deg);
+  -ms-transform: translate(-10px, 4px) rotate(45deg);
+  -o-transform: translate(-10px, 4px) rotate(20deg);
+  transform: translate(-10px, 4px) rotate(45deg);
+}
+
+#flowBoxes .active {
+  background-color: green;
+  color: white;
+}
+
+#flowBoxes div.active:after {
+  background-color: green;
+}
